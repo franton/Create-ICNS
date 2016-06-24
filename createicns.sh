@@ -14,9 +14,9 @@ fi
 # Work out file, path and extension info
 
 fullpath="$1"
-path=$( dirname $1 )
+path=$( dirname "$1" )
 ext=${1##*.}
-file=$( basename $1 .$ext )
+file=$( basename "$1" .$ext )
 
 # Is this a .png file?
 
