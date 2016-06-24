@@ -16,7 +16,7 @@ fi
 fullpath="$1"
 path=$( dirname "$1" )
 ext=${1##*.}
-file=$( basename "$1" .$ext )
+file=$( basename "$1" ".$ext" )
 
 # Is this a .png file?
 
