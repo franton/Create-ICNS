@@ -28,10 +28,10 @@ fi
 
 # Is the .png file the correct size and dpi?
 
-dpix=$( sips --getProperty dpiWidth "$fullpath" | awk '{if (NR =2) print $2 }' | cut -d . -f 1 )
-dpiy=$( sips --getProperty dpiHeight "$fullpath" | awk '{if (NR =2) print $2 }' | cut -d . -f 1 )
-pixelx=$( sips --getProperty pixelWidth "$fullpath" | awk '{if (NR =2) print $2 }' | cut -d . -f 1 )
-pixely=$( sips --getProperty pixelHeight "$fullpath" | awk '{if (NR =2) print $2 }' | cut -d . -f 1 )
+dpix=$( sips --getProperty dpiWidth "$fullpath" | awk NR==2'{ print $2 }' | cut -d . -f 1 )
+dpiy=$( sips --getProperty dpiHeight "$fullpath" | awk NR==2'{ print $2 }' | cut -d . -f 1 )
+pixelx=$( sips --getProperty pixelWidth "$fullpath" | awk NR==2'{ print $2 }' | cut -d . -f 1 )
+pixely=$( sips --getProperty pixelHeight "$fullpath" | awk NR==2'{ print $2 }' | cut -d . -f 1 )
 
 if [ "$dpix" != "144" ] || [ "$dpiy" != "144" ] || [ "$pixelx" != "1024" ] || [ "$pixely" != "1024" ];
 then
